@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CountController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\MailController;
+use  App\Http\Controllers\NewContactController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +19,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('contact_form');
 });
+
+// Route::get('/main', [CountController::class, 'index']);
+// Route::post('/main', [CountController::class, 'store']);
+
+// Route::get('/blade', [ContactController::class, 'send']);
+
+
+Route::post('/send', [MailController::class, 'sendContactMail'])->name('send.contact_mail');
+
